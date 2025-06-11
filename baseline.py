@@ -4,8 +4,8 @@ from transformers import AutoModelForSpeechSeq2Seq, AutoProcessor, pipeline
 import pandas as pd
 from tqdm import tqdm
 
-ROOT = ''
-data = pd.read_csv("test-metadata.csv")
+ROOT = 'output'
+data = pd.read_csv(f"{ROOT}/test/test-metadata.csv")
 
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
 model_id="herwoww/nadi2025_task3_B1"
