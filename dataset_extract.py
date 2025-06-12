@@ -24,6 +24,11 @@ for i, dataset_name in enumerate(dataset_names):
         row['text'] = araby.strip_diacritics(row['text'])
         return row
 
+    import string
+    def remove_punctuation(text):
+        translator = str.maketrans('', '', string.punctuation)
+        return text.translate(translator)
+
 
     # Load dataset
     if config:
@@ -77,6 +82,7 @@ for i, dataset_name in enumerate(dataset_names):
         df = pd.DataFrame(processed_data)
         if True:
             df = df.apply(remove_diacritics, axis=1)
+        df['text'] = df['text'].apply(remove_punctuation)
         save_path = os.path.join(split_dir, f"{split}-metadata.{save_format}")
         
         if save_format == "csv":

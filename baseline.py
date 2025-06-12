@@ -5,7 +5,7 @@ import pandas as pd
 from tqdm import tqdm
 
 ROOT = 'output'
-data = pd.read_csv(f"{ROOT}/test/test-metadata.csv")
+data = pd.read_csv(f"{ROOT}/dev/NADI-2025-Sub-task-3-all/dev-metadata.csv")
 
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
 model_id="herwoww/nadi2025_task3_B1"
